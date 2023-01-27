@@ -1,0 +1,48 @@
+{
+  "name": "financial-manager",
+  "version": "1.0.0",
+  "description": "My track finance",
+  "main": "node_modules/expo/AppEntry.js",
+  "author": "Rose",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-navigation/native": "^6.1.2",
+    "@react-navigation/native-stack": "^6.9.8",
+    "expo": "~47.0.8",
+    "expo-constants": "^14.0.2",
+    "expo-status-bar": "~1.4.2",
+    "formik": "^2.2.9",
+    "react": "18.1.0",
+    "react-native": "0.70.5",
+    "react-router-native": "^6.6.2",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/eslint-parser": "^7.19.1",
+    "@expo/webpack-config": "^0.17.4",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.31.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-config-standard-jsx": "^11.0.0",
+    "eslint-config-standard-react": "^12.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.31.11"
+  },
+  "private": true,
+  "eslintConfig": {
+    "parser": "@babel/eslint-parser",
+    "extends": [
+      "standard",
+      "standard-jsx",
+      "standard-react"
+    ]
+  }
+}
