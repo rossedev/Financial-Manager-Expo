@@ -1,13 +1,13 @@
 import React from "react";
 import { HStack, VStack, Text, Alert } from "native-base";
 
-const AlertBase = ({ text }) => {
+const AlertBase = ({ text, status }) => {
   return (
     <Alert
       maxWidth="100%"
       alignSelf="center"
       flexDirection="row"
-      status="success"
+      status={status || "success"}
       variant="left-accent"
     >
       <VStack space={2} flexShrink={1} w="80%">
