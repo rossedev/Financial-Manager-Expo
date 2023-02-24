@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Button, Input } from "native-base";
+import { Modal, Button, Input, Flex } from "native-base";
 
 const EditRegister = ({
   formEdit,
@@ -22,19 +22,25 @@ const EditRegister = ({
               onChangeText={(e) => changeEdit(e, "concept")}
               placeholder="Concept"
             />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button.Group space={2}>
+
+            <Flex direction="row-reverse" mb="2" mt="10">
               <Button
-                variant="ghost"
+                onPress={submitEdit}
+                variant="subtle"
+                colorScheme="primary"
+                ml={3}
+              >
+                Edit
+              </Button>
+              <Button
+                variant="subtle"
                 colorScheme="blueGray"
                 onPress={onCloseEditModal}
               >
                 Cancel
               </Button>
-              <Button onPress={submitEdit}>Save</Button>
-            </Button.Group>
-          </Modal.Footer>
+            </Flex>
+          </Modal.Body>
         </Modal.Content>
       </Modal>
     </>

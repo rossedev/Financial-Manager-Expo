@@ -4,35 +4,38 @@ import { NativeBaseProvider } from "native-base";
 import Home from "./src/pages/Home";
 import DetailAccount from "./src/pages/DetailAccount";
 import { useAccount } from "./src/components/useAccount";
+import MenuFab from "./src/components/MenuFab";
+import { Provider } from "./src/context/Provider";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
   const { account } = useAccount();
 
   return (
-    <NativeBaseProvider>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Home"
-          screenOptions={{
-            headerStyle: {
-              backgroundColor: "#27296d",
-            },
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-          }}
-        >
-          <Stack.Screen name="Home">
-            {(props) => <Home {...props} account={account} />}
-          </Stack.Screen>
+    <Provider>
+      <NativeBaseProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: "#407088",
+                textAlign: "center",
+              },
+              headerTintColor: "#fff",
+            }}
+          >
+            <Stack.Screen name="Home" options={{ title: "My home" }}>
+              {(props) => <Home {...props} account={account} />}
+            </Stack.Screen>
 
-          <Stack.Screen name="DetailAccount">
-            {(props) => <DetailAccount {...props} account={account} />}
-          </Stack.Screen>
-        </Stack.Navigator>
-      </NavigationContainer>
-    </NativeBaseProvider>
+            <Stack.Screen name="DetailAccount" options={{ title: "Detail" }}>
+              {(props) => <DetailAccount {...props} account={account} />}
+            </Stack.Screen>
+          </Stack.Navigator>
+          <MenuFab />
+        </NavigationContainer>
+      </NativeBaseProvider>
+    </Provider>
   );
 }

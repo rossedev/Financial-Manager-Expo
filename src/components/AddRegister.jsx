@@ -1,20 +1,11 @@
 import React from "react";
-import {
-  Modal,
-  Button,
-  Input,
-  FormControl,
-  Box,
-  Select,
-} from "native-base";
+import { Modal, Button, Input, FormControl, Box, Select } from "native-base";
+import useNewRegister from "../hooks/New/useNewRegister";
 
-const AddRegister = ({
-  form,
-  modalVisible,
-  changeView,
-  onChangeForm,
-  addRegister,
-}) => {
+const AddRegister = () => {
+  const { form, modalVisible, changeView, onChangeForm, addRegister } =
+    useNewRegister();
+
   return (
     <>
       <Modal isOpen={modalVisible} onClose={() => changeView(false)}>

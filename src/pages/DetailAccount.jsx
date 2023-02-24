@@ -11,10 +11,16 @@ import {
   Input,
   SearchIcon,
   Checkbox,
+  Badge,
+  Divider,
 } from "native-base";
 import React from "react";
 import { formatCurrency } from "../utils/formatCurrency";
-import { MaterialIcons, AntDesign } from "@expo/vector-icons";
+import {
+  MaterialIcons,
+  AntDesign,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
 import EditRegister from "../components/EditRegister";
 import RemoveRegister from "../components/RemoveRegister";
 import useDetailAccount from "../hooks/DetailAccount/useDetailAccount";
@@ -58,7 +64,7 @@ const DetailAccount = ({ account = [] }) => {
         m={5}
         mb={0}
         InputLeftElement={<SearchIcon size={5} ml="2" color="muted.400" />}
-        placeholder="Seach"
+        placeholder="Search"
         onChangeText={searchToName}
       />
 
@@ -68,7 +74,7 @@ const DetailAccount = ({ account = [] }) => {
           size="sm"
           onChange={filterCurrenly}
         >
-          Currenly month
+          Current month
         </Checkbox>
       </HStack>
 
@@ -85,34 +91,34 @@ const DetailAccount = ({ account = [] }) => {
             shadow="3"
             bg="coolGray.100"
             p="5"
-            mb="4"
+            mb={3}
           >
             <Box>
               <HStack alignItems="center">
                 {item.type === "ingreso" ? (
-                  <Icon
-                    as={AntDesign}
-                    name="upcircle"
-                    color="green.300"
-                    _dark={{
-                      color: "warmGray.50",
-                    }}
-                    size="5"
-                  />
+                  <Badge
+                    startIcon={<Icon as={AntDesign} name="arrowup" size="4" />}
+                    variant="solid"
+                    bg="green.300"
+                    rounded="8"
+                  >
+                    INCOME
+                  </Badge>
                 ) : (
-                  <Icon
-                    as={AntDesign}
-                    name="downcircle"
-                    color="red.300"
-                    _dark={{
-                      color: "warmGray.50",
-                    }}
-                    size="5"
-                  />
+                  <Badge
+                    startIcon={
+                      <Icon as={AntDesign} name="arrowdown" size="4" />
+                    }
+                    variant="solid"
+                    bg="red.300"
+                    rounded="8"
+                  >
+                    INCOME
+                  </Badge>
                 )}
 
                 <Spacer />
-                <Text fontSize={10} color="coolGray.800">
+                <Text fontSize={13} color="coolGray.800">
                   {moment(item.date).format("LL").toString()}
                 </Text>
               </HStack>
@@ -122,28 +128,34 @@ const DetailAccount = ({ account = [] }) => {
                 fontWeight="medium"
                 fontSize="xl"
               >
-                {item.concept}
-              </Text>
-              <Text mt="2" fontSize="sm" color="coolGray.700">
                 {formatCurrency(parseInt(item.value))}
               </Text>
-              <Flex direction="row" justifyContent="space-between">
-                <Text
-                  mt="2"
-                  fontSize={15}
-                  fontWeight="medium"
-                  color="darkBlue.600"
+              <Text mt="2" fontSize="16" color="coolGray.700" inc>
+                {item.concept}
+              </Text>
+              <Flex direction="row" justifyContent="flex-end">
+                <Icon
+                  as={MaterialCommunityIcons}
+                  name="circle-edit-outline"
+                  color="#27296d"
+                  _dark={{
+                    color: "warmGray.50",
+                  }}
                   onPress={() => {
                     onClickEdit(item);
                   }}
-                >
-                  Edit
-                </Text>
-
+                  size="6"
+                />
+                <Divider
+                  bg="coolGray.700"
+                  thickness="2"
+                  mx="3"
+                  orientation="vertical"
+                />
                 <Icon
                   as={MaterialIcons}
                   name="delete-outline"
-                  color="coolGray.700"
+                  color="#27296d"
                   _dark={{
                     color: "warmGray.50",
                   }}
