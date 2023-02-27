@@ -2,7 +2,7 @@ import "dotenv/config";
 
 export default {
   expo: {
-    name: "finanancial_manager",
+    name: "Finanancial Manager",
     slug: "finanancial_manager",
     version: "1.0.0",
     orientation: "portrait",
@@ -22,12 +22,14 @@ export default {
     },
     android: {
       adaptiveIcon: {
-        foregroundImage: "./assets/adaptive-icon.png",
+        foregroundImage: "./assets/icon.png",
         backgroundColor: "#FFFFFF",
       },
+      package: "com.rosedev.financial_manager",
+      versionCode: 1,
     },
     web: {
-      favicon: "./assets/favicon.png",
+      favicon: "./assets/icon.png",
     },
     extra: {
       apiKey: process.env.API_KEY,

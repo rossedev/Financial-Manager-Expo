@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Text, Box, Button } from "native-base";
+import React from "react";
+import { Text, Box } from "native-base";
 import AddRegister from "../components/AddRegister";
 import { formatCurrency } from "../utils/formatCurrency";
 import useHome from "../hooks/Home/useHome";
@@ -29,8 +29,8 @@ const Home = ({ account }) => {
           Welcome Rose
         </Text>
         <Text fontSize="lg">This is your summary</Text>
-        <Text mt={6} mb={2} fontSize="lg">
-          <Text bold>Total:</Text> {formatCurrency(summaryAccount.total)}
+        <Text mt={6} mb={2} fontSize="3xl">
+          <Text bold>{formatCurrency(summaryAccount.total)}</Text>
         </Text>
         <Text mb={2} fontSize="lg">
           <Text bold color="green.500">
@@ -42,7 +42,7 @@ const Home = ({ account }) => {
           <Text bold color="red.500">
             Outcome:
           </Text>{" "}
-          {formatCurrency(summaryAccount.outcome)}
+          -{formatCurrency(summaryAccount.outcome)}
         </Text>
       </Box>
 

@@ -8,7 +8,6 @@ export const Context = createContext({
 export const Provider = ({ children }) => {
   const [newRegister, setNewRegister] = useState(false);
 
-  console.log("newRegister", newRegister);
   return (
     <Context.Provider
       value={{
